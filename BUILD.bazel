@@ -1,0 +1,13 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+package(default_visibility = ["//visibility:public"])
+
+cc_library(
+    name = "stxxl",
+    srcs = glob(["lib/**/*.cpp"]),
+    hdrs = glob(["include/**/*"]) + glob(["lib/**/*.h"]),
+    copts = [
+        "-Iinclude/",
+        "-Ilib/io",
+    ],
+)
